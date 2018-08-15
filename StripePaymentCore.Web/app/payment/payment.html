@@ -1,6 +1,11 @@
 <div class="container-fluid">
     <div class="row">
-        <h3> {{title}}</h3>
-        <a href="javascript:;" id="paynow">Checkout <i class="fa fa-shopping-cart"></i></a>
+        <h3> {{title}} - {{cartAmount}}$</h3>
+        <a href="javascript:;" id="paynow">
+            <h5>
+                Checkout <i class="fa fa-shopping-cart"></i>
+            </h5>
+        </a>
+        <h5>{{stripeReturn}}</h5>
     </div>
 </div>

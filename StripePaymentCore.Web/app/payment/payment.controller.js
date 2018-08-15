@@ -12,7 +12,7 @@ templatingApp.controller('PaymentController', ['$scope', '$http', function ($sco
             var stripedata = {
                 stripeEmail: token.email,
                 stripeToken: token.id,
-                stripeAmount: amount
+                stripeAmount: $scope.cartAmount
             }
 
             $http({

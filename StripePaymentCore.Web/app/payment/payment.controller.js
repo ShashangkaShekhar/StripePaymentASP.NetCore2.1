@@ -1,8 +1,9 @@
-
 templatingApp.controller('PaymentController', ['$scope', '$http', function ($scope, $http) {
     $scope.title = "Stripe Payment";
     $scope.stripeReturn = null;
-    var amount = 50 * 100;
+    $scope.cartAmount = 50;
+
+    var amount = ($scope.cartAmount * 100);
 
     var handler = StripeCheckout.configure({
         key: 'pk_test_hSh8EsouT9mkVjzdmGjRxgSL',
@@ -19,8 +20,8 @@ templatingApp.controller('PaymentController', ['$scope', '$http', function ($sco
                 url: '/api/Values/Charge/',
                 data: JSON.stringify(stripedata)
             }).then(function (response) {
-                $scope.stripeReturn = response.data;
-                console.log(response.data);
+                $scope.stripeReturn = "Payment " + response.data;
+                //console.log(response.data);
             }, function (error) {
                 console.log(error);
             });
